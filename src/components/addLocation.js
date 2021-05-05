@@ -1,58 +1,35 @@
+
 import React, { useState } from "react";
 import customAxios from '../util/axios';
 import { useHistory } from "react-router-dom";
 
-export function SignUp(props) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
+export function AddLocation(props) {
   const [street, setStreet] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-
   let history = useHistory();
 
-  const handleSubmit = (evt) => {
-      evt.preventDefault();
-      customAxios.post("/users/create", {firstName, lastName, dateOfBirth, street, houseNumber, zipCode, city, country})
-      .then(function (response) {
 
-        localStorage.setItem('personalId', response.data.personalId);
-        history.push('/credentials');
+
+  const handleSubmit = (evt) => {
+      customAxios.post("/users/addLocation", {street, houseNumber, zipCode, city, country})
+      .then(function (response) {
+        localStorage.setItem('locationId', response.data);
+        history.push('/add');
       })
       .catch(function (error) {
         console.log(error);
       });
+      evt.preventDefault();
+
       }
   return (
+
+
     <div>
     <form onSubmit={handleSubmit}>
-      <label>
-        First Name:
-        <input
-          type="text"
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-        />
-      </label>
-      <label>
-        Last Name:
-        <input
-          type="text"
-          value={lastName}
-          onChange={e => setLastName(e.target.value)}
-        />
-      </label>
-      <label>
-        Date Of Birth:
-        <input
-          type="date"
-          value={dateOfBirth}
-          onChange={e => setDateOfBirth(e.target.value)}
-        />
-      </label>
       <label>
         Street:
         <input
@@ -98,4 +75,4 @@ export function SignUp(props) {
     </div>
   );
 }
-export default SignUp;
+export default AddLocation;

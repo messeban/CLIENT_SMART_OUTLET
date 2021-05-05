@@ -1,21 +1,52 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+import customAxios from '../util/axios';
+import { useHistory } from "react-router-dom";
 
-export default function Login() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-   
+export function Login(props) {
+  const [username, setUserame] = useState("");
+  const [password, setPassword] = useState("");
+  let history = useHistory();
+
+  const handleSubmit = async (evt) => {
+      evt.preventDefault();
+    const user = {"username": username, "password":password};
+      
+    const config = { headers: { 'Content-Type': 'application/json'  } }
+
+
+      await customAxios.post("/users/login", user, config)
+      .then(function (response) {
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+        localStorage.setItem('LoggedIn', true);
+
+        history.push('/outlets');
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-            User Name
-        <input {...register("userName")} />
-        </label>
-        <label>
-            password
-        <input type="password" {...register("password")} />
-        </label>
-      <input type="submit" />
+    <form onSubmit={handleSubmit}>
+      <label>
+        User Name:
+        <input
+          type="text"
+          value={username}
+          onChange={e => setUserame(e.target.value)}
+        />
+      </label>
+      <label>
+        Password:
+        <input
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+      </label>
+      <input type="submit" value="Submit" />
     </form>
   );
 }
+export default Login;
