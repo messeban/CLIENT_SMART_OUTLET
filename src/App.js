@@ -11,6 +11,7 @@ import AddLocation from "./components/addLocation";
 import AddOutlet from "./components/addOutlet";
 import Outlets from "./components/outlets";
 import Rooms from "./components/rooms";
+import Navbar from "./components/Navbar/Navbar";
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,27 +40,13 @@ const handleClick = (evt) => {
 
 function App() {
   const logged = localStorage.getItem("LoggedIn");
-  if (logged === "true") {
+
     return (
       <div className="App">
         <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/outlets">Outlets</Link>
-                </li>
-                <li>
-                  <Link to="/logout" onClick={handleClick}>
-                    Log Out
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-
-            {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-            <Switch>
+          <Navbar/>
+              <Switch>
+              
               <Route exact={true} path="/add" component={Locations} />
               <Route
                 exact={true}
@@ -71,31 +58,6 @@ function App() {
               <Route path="/rooms/:id" component={Rooms} />
 
               <Route exact={true} path="/add_room" component={AddRoom} />
-            </Switch>
-          </div>
-        </Router>
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-              </ul>
-            </nav>
-
-            {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-            <div className="grid">
-              <Switch>
                 <Route exact={true} path="/login" component={Login} />
                 <Route exact={true} path="/signup" component={SignUp} />
                 <Route
@@ -104,12 +66,10 @@ function App() {
                   component={Credentials}
                 />
               </Switch>
-            </div>
-          </div>
         </Router>
       </div>
     );
-  }
+  
 }
 
 export default App;

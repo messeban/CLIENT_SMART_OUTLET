@@ -28,6 +28,7 @@ export function Login(props) {
       });
       }
   return (
+    <div className="Login">
     <form onSubmit={handleSubmit}>
       <label>
         User Name:
@@ -47,6 +48,7 @@ export function Login(props) {
       </label>
       <input type="submit" value="Submit" />
     </form>
+    </div>
   );
 }
 export default Login;

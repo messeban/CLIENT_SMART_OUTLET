@@ -7,9 +7,6 @@ function Outlets() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
-  // Remarque : le tableau vide de dépendances [] indique
-  // que useEffect ne s’exécutera qu’une fois, un peu comme
-  // componentDidMount()
   useEffect(() => {
     customAxios.get("/outlets/").then(
       (result) => {
@@ -17,9 +14,6 @@ function Outlets() {
         setIsLoaded(true);
         setItems(result.data.outlets);
       },
-      // Remarque : il faut gérer les erreurs ici plutôt que dans
-      // un bloc catch() afin que nous n’avalions pas les exceptions
-      // dues à de véritables bugs dans les composants.
       (error) => {
         setIsLoaded(true);
         setError(error);
