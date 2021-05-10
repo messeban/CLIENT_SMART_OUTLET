@@ -46,7 +46,7 @@ function Navbar(props) {
             <nav className='navbar'>
                 <div className='navbar-container'>
                     <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        <i class='fas fa-leaf' />
+                        <i className='fas fa-leaf' />
                             Smart<br></br> Outlets
                             </Link>
                     <div className='menu-icon' onClick={handleClick}>
@@ -79,9 +79,9 @@ function Navbar(props) {
                     </ul>
 
                     {(button) && (!logged) && <Button buttonLink='/signUp' buttonStyle='btn--outline'>SIGN UP</Button>}
-                    {(button) && (!logged) && <Button buttonLink='/login' buttonStyle='btn--outline'>LOGIN</Button>}
+                    {(button) && (!logged) && <Button buttonLink='/login' buttonStyle='btn--outline' buttonSize='btn--medium--green'>LOGIN</Button>}
                     {(button) && (logged) && <Button buttonLink='/outlets' buttonStyle='btn--outline'>OUTLETS</Button>}
-                    {(button) && (logged) && <Button buttonLink='/logout' buttonStyle='btn--outline--red' onClick={handleLogout}>LOGOUT</Button>}
+                    {(button) && (logged) && <Button buttonLink='/logout' buttonStyle='btn--outline' buttonSize='btn--medium--red' onClick={handleLogout}>LOGOUT</Button>}
 
 
                 </div>

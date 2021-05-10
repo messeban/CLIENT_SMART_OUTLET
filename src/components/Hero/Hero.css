@@ -1,0 +1,17 @@
+.hero-container{
+    background: url('../../images/webb.png');
+    height: calc(100vh - 80px);
+    width: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+}
+.intro{
+    background-color: rgba(4, 62, 125, 0.75);
+    min-height: 25%;
+    min-width: 50%;
+    border-radius: 25px;
+    padding: 25px;
+    display: grid;
+    place-items: center;
+  }

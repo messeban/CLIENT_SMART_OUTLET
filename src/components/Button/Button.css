@@ -27,12 +27,21 @@
     border: 1px solid var(--primary);
     transition: all 0.3s ease-out;
   }
+
+  
   
   .btn--medium {
     padding: 8px 20px;
     font-size: 18px;
   }
-  
+  .btn--medium--red {
+    padding: 8px 20px;
+    font-size: 18px;
+  }
+  .btn--medium--green {
+    padding: 8px 20px;
+    font-size: 18px;
+  }
   .btn--large {
     padding: 12px 26px;
     font-size: 20px;
@@ -43,5 +52,19 @@
     transition: all 0.3s ease-out;
     background: #fff;
     color: #242424;
+    transition: 250ms;
+  }
+
+  .btn--medium--red:hover {
+    transition: all 0.3s ease-out;
+    background: red;
+    color: #fff;
+    transition: 250ms;
+  }
+
+  .btn--medium--green:hover {
+    transition: all 0.3s ease-out;
+    background: green;
+    color: #fff;
     transition: 250ms;
   }
