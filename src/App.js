@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./App.css";
 
@@ -17,36 +17,18 @@ import {
   Switch,
   Route,
   Link,
+  Redirect
 } from "react-router-dom";
 
-import customAxios from "./util/axios";
 
-const handleClick = (evt) => {
-  evt.preventDefault();
-  const token = localStorage.getItem("refreshToken");
-  customAxios
-    .post("/users/logout", { token })
-    .then(function (response) {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      localStorage.setItem("LoggedIn", false);
-      window.location.reload();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
 
 
 function App() {
-  const logged = localStorage.getItem("LoggedIn");
-
     return (
       <div className="App">
         <Router>
           <Navbar/>
               <Switch>
-              
               <Route exact={true} path="/add" component={Locations} />
               <Route
                 exact={true}
