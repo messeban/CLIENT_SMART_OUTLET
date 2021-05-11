@@ -16,7 +16,7 @@ export function AddRoom(props) {
       .post("/users/addRoom/" + id, { name })
       .then(function (response) {
 
-        history.push("/rooms");
+        history.push("/rooms/"+id);
       })
       .catch(function (error) {
         console.log(error);
@@ -25,6 +25,7 @@ export function AddRoom(props) {
   return (
     <div className='container'>
       <form onSubmit={handleSubmit}>
+      <h1>Add Room:</h1>
         <label>
           Name of the room:</label>
 

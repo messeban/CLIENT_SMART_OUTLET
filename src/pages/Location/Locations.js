@@ -45,6 +45,7 @@ function Locations() {
         <h1>Locations</h1>
         <table>
           <tr>
+            <th>Name</th>
             <th>Street</th>
             <th>House Number</th>
             <th>ZIP code</th>
@@ -55,6 +56,7 @@ function Locations() {
 
           {items.map((item) => (
             <tr>
+              <td>{item.name}</td>
               <td>{item.street}</td>
               <td>{item.houseNumber}</td>
               <td>{item.zipCode}</td>

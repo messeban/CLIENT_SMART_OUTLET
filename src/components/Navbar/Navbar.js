@@ -78,10 +78,10 @@ function Navbar(props) {
                         </li>}
                     </ul>
 
-                    {(button) && (!logged) && <Button buttonLink='/signUp' buttonStyle='btn--outline'>SIGN UP</Button>}
-                    {(button) && (!logged) && <Button buttonLink='/login' buttonStyle='btn--outline' buttonSize='btn--medium--green'>LOGIN</Button>}
-                    {(button) && (logged) && <Button buttonLink='/outlets' buttonStyle='btn--outline'>OUTLETS</Button>}
-                    {(button) && (logged) && <Button buttonLink='/logout' buttonStyle='btn--outline' buttonSize='btn--medium--red' onClick={handleLogout}>LOGOUT</Button>}
+                    {(button) && (!logged) &&  <Link to="/signup"><Button buttonStyle='btn--outline'>SIGN UP</Button></Link>}
+                    {(button) && (!logged) && <Link to="/login"><Button buttonStyle='btn--outline' buttonSize='btn--medium--green'>LOGIN</Button></Link>}
+                    {(button) && (logged) &&  <Link to="/outlets"><Button buttonStyle='btn--outline'>OUTLETS</Button></Link>}
+                    {(button) && (logged) &&  <Link to="/logout"><Button buttonStyle='btn--outline' buttonSize='btn--medium--red' onClick={handleLogout}>LOGOUT</Button></Link>}
 
 
                 </div>

@@ -46,7 +46,7 @@ export function Login(props) {
           onChange={e => setPassword(e.target.value)}
         />
 
-<Button type='submit' buttonStyle='btn--outline'>LOGIN</Button> 
+        <Button type='submit' buttonStyle='btn--outline'>LOGIN</Button> 
    </form>
     </div>
   );

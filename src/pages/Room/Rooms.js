@@ -40,7 +40,7 @@ function Rooms() {
       <div className='container'>
         <h1>Rooms</h1>
         <h3>No Rooms</h3>
-        <Link to="/add_rooms">Add Rooms</Link>
+        <Link to="/add_room">Add Rooms</Link>
       </div>
     );
   } else {
