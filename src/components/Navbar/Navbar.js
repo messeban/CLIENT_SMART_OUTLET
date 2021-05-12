@@ -57,6 +57,10 @@ function Navbar(props) {
                             <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                                 Home </Link>
                         </li>
+                        <li className='nav-item'>
+                            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                                About Us</Link>
+                        </li>
                         {!logged && <li>
                             <Link to='/signUp' className='nav-links-mobile' onClick={closeMobileMenu} >
                                 Sign Up</Link>

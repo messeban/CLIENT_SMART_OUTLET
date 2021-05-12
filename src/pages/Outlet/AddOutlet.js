@@ -5,7 +5,7 @@ import { Button } from '../../components/Button/Button';
 
 export function AddOutlet(props) {
   const [name, setName] = useState("");
-  const [device, setDevice] = useState("");
+  const [device, setDevice] = useState("Other");
   const [outletId, setOutletId] = useState(null);
 
   let history = useHistory();
@@ -37,11 +37,12 @@ export function AddOutlet(props) {
         />
         <label>
           Device:</label>
-          <select name="devices" id="devices" onChange={(e) => setDevice(e.target.value)}>
+          <select name="devices" id="devices" value={device} onChange={(e) => setDevice(e.target.value)}>
           <option value="TV">TV</option>
           <option value="Computer">Computer</option>
           <option value="Fridge">Fridge</option>
           <option value="Dryer">Dryer</option>
+          <option value="Other">Other</option>
         </select>
         <label>
           Outlet ID(ID is written on the box):</label>
@@ -50,7 +51,7 @@ export function AddOutlet(props) {
           value={outletId}
           onChange={(e) => setOutletId(e.target.value)}
         />
-        <Button type='submit' buttonStyle='btn--outline'>LOGIN</Button>      </form>
+        <Button type='submit' buttonStyle='btn--outline'>Add Outlet</Button>      </form>
     </div>
   );
 }

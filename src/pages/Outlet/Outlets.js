@@ -20,7 +20,7 @@ function Outlets() {
     setItems(elements);
 
     customAxios
-    .post("/outlets/"+element.id+"/state", { isConnected: element.isConnected })
+    .post("/outlets/"+element.id+"/switch", { isConnected: element.isConnected })
     .then(function (response) {
       console.log(response);
     })
@@ -97,7 +97,7 @@ function Outlets() {
               <input type="checkbox" checked={item.isConnected} onClick={()=>sayHello(index, item)}/>
                  <span class="slider round"></span>
             </label>
-            <Link to="/graph"><Button buttonStyle='btn--outline'>Go Graph</Button></Link>
+            <Link to={"/graph/"+item.id}><Button buttonStyle='btn--outline'>Graph</Button></Link>
           </div>
           ))}
             <div className="card--outlet">
